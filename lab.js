@@ -178,27 +178,24 @@ var user = {
   username: 'bryansmith33'
 };
 // Do not edit the code above.
-
 /*
   Let's say I, the user, decided to change my name and email address to the
   following:
   name -> 'Bryan G. Smith' and email -> 'bryan.smith@devmounta.in'.
   Make that change without modifying the original object code above.
 */
-
 //Code Here
 
-user.name = 'Bryan G. Smith'
+user.name = 'Bryan G. Smith'  //modifying the name & email property of the user object
 user.email = 'bryan.smith@devmounta.in'
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
 /*
   Using the user object above, delete the users age off of the object.
 */
-
 //Code Here
 
-delete user.age
+delete user.age  //this removes the age property from user
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
 /*
@@ -211,14 +208,14 @@ delete user.age
 
 //Code here
 
-class Cat {
+class Cat {  //create the Cat class which has name, age and color properties
   constructor (name, age, color){
     this.name = name
     this.age = age
     this.color = color
   }
 }
-let tiger = new Cat('Federico', 7, 'orange & black stripes')
+const tiger = new Cat('Federico', 7, 'orange & black stripes') //creates an object within the framework of the Class structure, and defining the properties that belong to it
 console.log(tiger.name)
 
 //////////////////////////// PROBLEM 13 ////////////////////////////
@@ -233,20 +230,20 @@ console.log(tiger.name)
 */
 
 //Code here
-class Wizard {
+class Wizard {  //create a Class for Wizard, with properties: name, age, favoriteSpell
   constructor(name, age, favoriteSpell){
     this.name = name
     this.age = age
     this.favoriteSpell = favoriteSpell
   }
-  castSpell() {
+  castSpell() { //method to report back the spell the Wizard has cast
     console.log(`${this.name} has cast ${this.favoriteSpell}`)
   }
 }
 
-const malfoy = new Wizard('Malfoy', 13, 'Avada Kedavra')
+const malfoy = new Wizard('Malfoy', 13, 'Avada Kedavra') //creating a new wizard within the Wizard class, and defining its properties
 
-malfoy.castSpell()
+malfoy.castSpell() //this invokes the method of the object
 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
@@ -268,20 +265,20 @@ malfoy.castSpell()
     Inside the function, reassign the value of the object's price
     to be newPrice. */
 //Code Here
-class Phone {
+class Phone {  //a Phone class to track: brand, model, storage, color, price and whether it sold, properties
   constructor(brand, model, storage, color, price, sold){
     this.brand = brand;
     this.model = model;
     this.storage = storage;
     this.color = color;
     this.price = price;
-    this.sold = false
+    this.sold = false  //when creating a new Object, it will not be sold, so this is set to false to begin with
   }
-  sell() {
-    this.sold = true
+  sell() {  //allows the owner to sell his phone, by confirming it's sale with a message
+    this.sold = true //changes the false value (in possesion) to true (has been purchased)
     console.log(`${this.brand} ${this.model} has been sold`)
   }
-  changePrice(newPrice) {
+  changePrice(newPrice) { //allows the owner to modify the price based on the market
     this.price = newPrice
   }
 }
@@ -300,6 +297,7 @@ class Phone {
 let phone1 = new Phone('Samsung', 'Galaxy S23', 128, 'sky blue', 799)
 let phone2 = new Phone('Apple', 'iPhone 15 Pro', 128, 'bone white', 999)
 let phone3 = new Phone('Google', 'Pixel 8', 128, 'pink', 999)
+//3 phones the owner is attempting to sell off, with its features/properties
 
 /*
   Call the changePrice function on one of your phones,
@@ -309,7 +307,7 @@ let phone3 = new Phone('Google', 'Pixel 8', 128, 'pink', 999)
 */
 //Code Here
 
-phone3.changePrice(849)
+phone3.changePrice(849) //this phone has been discounted due to lack of interest
 console.log(phone3)
 
 /*
@@ -318,7 +316,7 @@ console.log(phone3)
 */
 //Code Here
 
-phone2.sell()
+phone2.sell() //this phone is sold at price cost
 console.log(phone2.sold)
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
@@ -339,7 +337,7 @@ const colors = {
 //do not edit this object
 //Code Here
 
-const colorsCopy = {...colors}
+const colorsCopy = {...colors} ///copy a prior object into a new object, maintaining the original
 
 /*
  Now use the spread operator to combine the following 2 objects into one.
@@ -364,7 +362,9 @@ const shippingInfo = {
 }
 //do not edit the objects above
 //Code Here
-const helensInfo = {...contactInfo, ...shippingInfo}
+const helensInfo = {...contactInfo, ...shippingInfo} //combine two objects
+//into one, replacing similar properities with the last argument provided ex: ...shippingInfo
+
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
 
@@ -382,14 +382,14 @@ console.log(helensInfo)
   And finally, print the value of the mileage.
 */
 //Code Here
-class Vehicle {
+class Vehicle {  //Create Vehicle class, with capacity, color, mileage properties
   constructor(capacity, color, mileage){
     this.capacity = capacity;
     this.color = color;
     this.mileage = mileage;
   }
-  move(miles) {
-    this.mileage = miles
+  move(miles) {  //this changes the current mileage of the vehicle, it's a running total
+    this.mileage += miles
     console.log(this.mileage)
   }
 }
@@ -398,7 +398,7 @@ class Vehicle {
   myFirstVehicle
 */
 //Code Here
-const myFirstVehicle = new Vehicle()
+const myFirstVehicle = new Vehicle(8, 'Purple', 125000) //create a new instance of myFirstVehicle
 
 /*
   Now we'll create a class that's based off of the vehicle class.
@@ -408,9 +408,9 @@ const myFirstVehicle = new Vehicle()
   as 2 new ones: make and isCool. (Hint: don't forget to call the super function)
 */
 //Code Here
-class Motorcycle extends Vehicle {
-  constructor(capacity, color, mileage, make, isCool){
-    super(capacity, color, mileage)
+class Motorcycle extends Vehicle { //Motorcyle Class which is expanded from the Vehicles Class
+  constructor(capacity, color, mileage, make, isCool){ //properties borrowed from parent, and new ones for this class
+    super(capacity, color, mileage)  //super required
 
     this.make = make;
     this.isCool = isCool;
@@ -421,11 +421,11 @@ class Motorcycle extends Vehicle {
   myFirstMotorcycle
 */
 //Code Here
-const myFirstMotorcycle = new Motorcycle()
+const myFirstMotorcycle = new Motorcycle(2, 'Black, white fire emblazoned', 43560, 'Harley', true)
 /*
   Call the move function on myFirstMotorcycle (don't forget the parameter)
 */
-myFirstMotorcycle.move(346)
+myFirstMotorcycle.move(346)  //how many miles the motorcyle has driven recently
 /*
   Let's make another class based off of Vehicle.
   Write a class called Boat that *extends* the Vehicle class. The constructor should take in
@@ -439,22 +439,22 @@ myFirstMotorcycle.move(346)
   This function should set isSeaworthy to be true
 */
 //Code Here
-class Boat extends Vehicle {
+class Boat extends Vehicle { //extends the class of Vehicle
   constructor(capacity, color, mileage, name, type, isSeaworthy) {
-    super(capacity, color, mileage)
-
+    super(capacity, color, mileage) //recruits the parent properties: capacity, color, mileage
+                            //new properties: name, type, isSeaworthy
     this.name = name;
     this.type = type;
     this.isSeaworthy = isSeaworthy
   }
-  checkSeaworthiness() {
+  checkSeaworthiness() { //function testing whether the Boat is safe to drive on water
     if(this.isSeaworthy === true){
       console.log(`The ${this.color} ${this.type} ${this.name} is seaworthy!`)
     } else {
       console.log(`You need to get your ${this.type} in shape!`)
     }
   }
-  performMaintenance() {
+  performMaintenance() { //this function allows the owner to repair vessel, for water travel
     this.isSeaworthy = true
   }
 }
@@ -466,7 +466,7 @@ class Boat extends Vehicle {
   myFirstBoat.
 */
 //Code Here
-const myFirstBoat = new Boat(12, 'sea green', 112, 'Mr. Beaumont', 'speedboat', false)
+const myFirstBoat = new Boat(12, 'sea green', 10012, 'Mr. Beaumont', 'speedboat', false)
 /*
   Call the checkSeaworthiness method on your new boat
 */
